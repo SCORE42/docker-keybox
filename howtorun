@@ -1,0 +1,20 @@
+Build the docker image
+
+$ docker build -t keybox-ad .
+
+$ docker run -d \
+    -v /Users/louis.dejaeger/Docker/keybox:/a/keydb \
+    -p 8443:8443 \
+    -e resetApplicationSSHKey=false \
+    -e sshKeyType=rsa \
+    -e privateKey=/a/keydb/sshkey/private \
+    -e publicKey=/a/keydb/sshkey/private.pub \
+    -e enableInternalAudit=false \
+    -e deleteAuditLogAfter=90 \
+    -e serverAliveInterval=60 \
+    -e oneTimePassword=optional \
+    -e keyManagementEnabled=true \
+    -e forceUserKeyGeneration=false \
+    -e authKeysRefreshInterval=120 \
+    -e jaasModule=ldap-ad \
+    keybox-ad

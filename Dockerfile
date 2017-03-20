@@ -8,6 +8,9 @@ RUN mkdir -p /opt \
 EXPOSE 8443/tcp
 VOLUME ["/a/keydb"]
 
+RUN rm /opt/KeyBox-jetty/jetty/keybox/WEB-INF/classes/jaas.conf
+ADD jaas.conf /opt/KeyBox-jetty/jetty/keybox/WEB-INF/classes/jaas.conf
+
 ADD start.sh /a/start.sh
 RUN chmod +x /a/start.sh
 
