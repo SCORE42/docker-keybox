@@ -178,7 +178,6 @@ set an audit log server using log4j (ex: logstash). Edit the log4j.xml to config
 enable two-factor authentication
 
 
-
 ### Example:
 
 ```console
@@ -187,6 +186,27 @@ $ docker run -d -v /my/own/datadir:/a/keydb -p 8443:8443 -e oneTimePassword=disa
 In this example two-factor authentication is disabled and the SSH Key Length is extended to 4096 bits.
 
 If you use docker-compose you can get a example "docker-compose.yml" in my GitHub Repository.
+
+## Active directory
+Edit the jaas.conf file and include the necessary data.
+
+### Example
+```console
+ldap-ad {
+    //AD example config
+    com.sun.security.auth.module.LdapLoginModule REQUIRED
+    userProvider="ldap://172.16.0.1:389/DC=company,DC=com"
+    //authIdentity="{USERNAME}"
+    userFilter="(&(samAccountName={USERNAME})(objectClass=user))"
+    authzIdentity="{displayName}" //set this to return full name
+    java.naming.security.authentication="simple"
+    java.naming.security.principal="CN=service ldap,OU=Active Directory,OU=Service Accounts,DC=company,DC=com"
+    java.naming.security.credentials="passw0rd"
+    useSSL=false
+    debug=false;
+};
+
+```
 
 ## Supported Docker versions
 
