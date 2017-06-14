@@ -21,7 +21,14 @@ echo passwordComplexityMsg=${passwordComplexityMsg:-'Passwords must be 8 to 20 c
 echo clientIPHeader=${clientIPHeader:-} >> /opt/KeyBox-jetty/jetty/keybox/WEB-INF/classes/KeyBoxConfig.properties
 echo jaasModule=${jaasModule:-} >> /opt/KeyBox-jetty/jetty/keybox/WEB-INF/classes/KeyBoxConfig.properties
 
-echo dbPath=${dbPath:-} >> /opt/KeyBox-jetty/jetty/keybox/WEB-INF/classes/KeyBoxConfig.properties
+echo sessionTimeout=${sessionTimeout:-15} >> /opt/KeyBox-jetty/jetty/keybox/WEB-INF/classes/KeyBoxConfig.properties
+echo dbUser=${dbUser:-keybox} >> /opt/KeyBox-jetty/jetty/keybox/WEB-INF/classes/KeyBoxConfig.properties
+echo dbPassword=${dbPassword:-keybox} >> /opt/KeyBox-jetty/jetty/keybox/WEB-INF/classes/KeyBoxConfig.properties
+echo dbDriver=${dbDriver:-org.h2.Driver} >> /opt/KeyBox-jetty/jetty/keybox/WEB-INF/classes/KeyBoxConfig.properties
+echo dbConnectionURL=${dbConnectionURL:-'jdbc:h2:keydb/keybox;CIPHER=AES;'} >> /opt/KeyBox-jetty/jetty/keybox/WEB-INF/classes/KeyBoxConfig.properties
+
+
+#echo dbPath=${dbPath:-} >> /opt/KeyBox-jetty/jetty/keybox/WEB-INF/classes/KeyBoxConfig.properties
 echo maxActive=${maxActive:-25} >> /opt/KeyBox-jetty/jetty/keybox/WEB-INF/classes/KeyBoxConfig.properties
 echo testOnBorrow=${testOnBorrow:-true} >> /opt/KeyBox-jetty/jetty/keybox/WEB-INF/classes/KeyBoxConfig.properties
 echo minIdle=${minIdle:-2} >> /opt/KeyBox-jetty/jetty/keybox/WEB-INF/classes/KeyBoxConfig.properties
