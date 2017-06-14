@@ -16,5 +16,5 @@ $ docker run -d \
     -e keyManagementEnabled=true \
     -e forceUserKeyGeneration=false \
     -e authKeysRefreshInterval=120 \
-    -e jaasModule=ldap-ad \
+    -e jaasModule=ldap-ol-with-roles \
     keybox-ad
