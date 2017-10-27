@@ -2,7 +2,7 @@ FROM java:8-jdk-alpine
 
 RUN mkdir -p /opt \
     && apk add --no-cache wget \
-    && wget -qO- "https://github.com/skavanagh/KeyBox/releases/download/v2.86.00/keybox-jetty-v2.86_00.tar.gz" \
+    && wget -qO- "https://github.com/skavanagh/KeyBox/releases/download/v2.90.02/keybox-jetty-v2.90_02.tar.gz" \
     | tar -xzC /opt
 
 EXPOSE 8443/tcp
